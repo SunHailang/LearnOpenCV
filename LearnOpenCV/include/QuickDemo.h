@@ -2,16 +2,17 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <iostream>
 
 
-
-class CarLine
+class QuickDemo
 {
 public:
-	void ImageCarLine();
+	void QuickDemoPix(cv::InputArray input);
 
 private:
 
 };
+
 
 

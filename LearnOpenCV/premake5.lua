@@ -12,13 +12,8 @@ project "LearnOpenCV"
 
 	files
 	{
-		"src/**.h",
-<<<<<<< HEAD
-		"src/**.cpp",
-		"src/**.hpp"
-=======
+		"include/**.h",
 		"src/**.cpp"
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 	}
 
 	defines
@@ -28,7 +23,7 @@ project "LearnOpenCV"
 
 	includedirs
 	{
-		"src",
+		"include",
 		"%{IncludeDir.opencv2}",
 	}
 
@@ -39,11 +34,7 @@ project "LearnOpenCV"
 
 	links
 	{
-<<<<<<< HEAD
 		--"opencv_world455d.lib"
-=======
-		"opencv_world455d.lib"
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 	}
 
 	--filter "files:vendor/ImGuizmo/**.cpp"
@@ -60,34 +51,25 @@ project "LearnOpenCV"
 		defines "OPENCV_DEBUG"
 		runtime "Debug"
 		symbols "on"
-<<<<<<< HEAD
 		links
 		{
 			"opencv_world455d.lib"
 		}
-=======
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 
 	filter "configurations:Release"
 		defines "OPENCV_RELEASE"
 		runtime "Release"
 		optimize "on"
-<<<<<<< HEAD
 		links
 		{
 			"opencv_world455.lib"
 		}
-=======
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 
 	filter "configurations:Dist"
 		defines "OPENCV_DIST"
 		runtime "Release"
 		optimize "on"
-<<<<<<< HEAD
 		links
 		{
 			"opencv_world455.lib"
 		}
-=======
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2

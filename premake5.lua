@@ -2,11 +2,8 @@
 include "./vendor/premake/premake_customization/solution_items.lua"
 
 workspace "LearnOpenCV"
-<<<<<<< HEAD
 	architecture "x86_64"
-=======
 	architecture "x64"
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 	startproject "LearnOpenCV"
 
 	configurations
