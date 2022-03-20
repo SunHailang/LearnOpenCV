@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿##################
-=======
-##################
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 /.vs/
 /Debug/
 /x64/
@@ -11,7 +7,6 @@
 
 /Library/
 
-<<<<<<< HEAD
 /Library/opencv/sources/
 /Library/opencv/build/java/
 /Library/opencv/build/python/
@@ -21,8 +16,6 @@
 /Library/opencv/build/x64/vc14/lib/opencv_world455d.lib
 
 
-=======
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 /LearnOpenCV/Debug/
 /LearnOpenCV/x64/
 
@@ -33,9 +26,6 @@
 *.filters
 
 *.png
-<<<<<<< HEAD
 *.mp4
 *.jpg
-=======
->>>>>>> cfeab2ae87f341025c3d79a202834fdbbb2a31c2
 

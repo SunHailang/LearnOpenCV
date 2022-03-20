@@ -21,14 +21,8 @@ void rescaleFrame(cv::InputArray src, cv::OutputArray dst, float scale = 0.75)
 	cv::resize(src, dst, cv::Size(0, 0), scale, scale);
 }
 
-
-
-
-int main(int argc, char** argv)
+void initVideo()
 {
-	std::cout << "OpenCV Hello World!" << std::endl;
-
-
 	cv::Mat mat = cv::imread("0116.jpg");
 	cv::VideoCapture inVideo = cv::VideoCapture(INPUT_VIDEO);
 	double frame_num = inVideo.get(cv::CAP_PROP_FRAME_COUNT);
@@ -44,7 +38,7 @@ int main(int argc, char** argv)
 	//cv::Mat
 	cv::Scalar lower_blue = cv::Scalar(0, 43, 46);
 	cv::Scalar upper_blue = cv::Scalar(10, 255, 255);
-	cv::Mat kernel1 = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(13,13));//cv::Mat::ones(cv::Size(13, 13), CV_8UC1);
+	cv::Mat kernel1 = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(13, 13));//cv::Mat::ones(cv::Size(13, 13), CV_8UC1);
 	cv::Mat kernel2 = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(7, 7)); //cv::Mat::ones(cv::Size(7, 7), CV_8UC1);
 	cv::Mat kernel3 = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(37, 37)); //cv::Mat::ones(cv::Size(37, 37), CV_8UC1);
 	// 记录 run_time 运行时间
@@ -88,8 +82,8 @@ int main(int argc, char** argv)
 			cv::morphologyEx(frame, dstImage5, cv::MORPH_BLACKHAT, element);
 			rescaleFrame(dstImage5, resultLine5, 0.5);
 			cv::imshow("black", resultLine5);
-			cv::waitKey(10);
-			continue;
+			//cv::waitKey(10);
+			//continue;
 			//cv::Mat gray;
 			//cv::cvtColor(dstImage3, gray, cv::COLOR_RGB2GRAY);
 			//cv::Mat blur;
@@ -131,7 +125,7 @@ int main(int argc, char** argv)
 			//cv::imshow("closing2", closing2Dst);
 			cv::Mat dilation;
 			cv::dilate(closing2, dilation, kernel2);
-			cv::Mat roi = closing2(cv::Rect(0, 580, 1920, 500));
+			cv::Mat roi = closing2(cv::Rect(0, 780, 1750, 300));
 			cv::Mat roiDst;
 			rescaleFrame(roi, roiDst, 0.5);
 			cv::imshow("roi", roiDst);
@@ -146,6 +140,12 @@ int main(int argc, char** argv)
 				cv::line(frame, cv::Point(rect.x + int(rect.width / 2), 980),
 					cv::Point(rect.x + int(rect.width / 2), 1020),
 					cv::Scalar(0, 255, 0), 2);
+
+				cv::line(frame, cv::Point(rect.x, 1080 - rect.y), cv::Point(rect.x, 1080 - (rect.y + rect.height)), cv::Scalar(255, 0, 0), 2);
+				cv::line(frame, cv::Point(rect.x, 1080 - rect.y), cv::Point(rect.x + rect.width, 1080 - rect.y), cv::Scalar(255, 0, 0), 2);
+				cv::line(frame, cv::Point(rect.x + rect.width, 1080 - rect.y), cv::Point(rect.x + rect.width, 1080 - (rect.y + rect.height)), cv::Scalar(255, 0, 0), 2);
+				cv::line(frame, cv::Point(rect.x, 1080 - (rect.y + rect.height)), cv::Point(rect.x + rect.width , 1080 - (rect.y + rect.height)), cv::Scalar(255, 0, 0), 2);
+
 				int p = rect.x + int(rect.width / 2);
 
 				cv::putText(frame, cv::String("index:" + p), cv::Point(rect.x + int(rect.width / 2) + 1, 999),
@@ -164,6 +164,14 @@ int main(int argc, char** argv)
 	}
 	outVideo.release();
 	cv::destroyAllWindows();
+}
+
+
+int main(int argc, char** argv)
+{
+	std::cout << "OpenCV Hello World!" << std::endl;
 	
+	initVideo();
+
 	return 0;
 }
